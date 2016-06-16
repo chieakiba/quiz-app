@@ -4,13 +4,13 @@ var quiz = [{
     choices: ["Hanging Gardens of Babylon", "Great Pyramid of Giza", "Colossus of Rhodes", "Lighthouse of Alexandria", "Temple of Artemis"],
     correct: 1,
     answer: "Great Pyramid of Giza",
-    trivia: "The Great Pyramid of Giza is the oldest and largest of teh three pyramids in what is now El Giza, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact. There have been varying scientific and alternative theories about the Great Pyramid's construction techniques. Most accepted construction hypotheses are based on the idea that it was built by moving huge stones from a quarry and dragging and lifting them into place."
+    trivia: "The Great Pyramid of Giza is the oldest and largest of the three pyramids in what is now El Giza, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact. There have been varying scientific and alternative theories about the Great Pyramid's construction techniques. Most accepted construction hypotheses are based on the idea that it was built by moving huge stones from a quarry and dragging and lifting them into place."
 }, {
     question: "Who was the first emperor of China?",
     choices: ["Shaohao", "Shao Kang", "Kong Jia", "Qin Shi Huang",  "Lu Gui"],
     correct: 3,
     answer: "Qin Shi Huang",
-    trivia: "Qin Shi Huang was born a prince of the state of Qin and became China's first emperor after the Qin conquered all of the other Warring States. HHe eventually unified all of China in 221 BC. His self-invented title 'emperor' would continue to be borne by Chinese rulers for the next two millennia."
+    trivia: "Qin Shi Huang was born a prince of the state of Qin and became China's first emperor after the Qin conquered all of the other Warring States. He eventually unified all of China in 221 BC. His self-invented title 'emperor' would continue to be borne by Chinese rulers for the next two millennia."
 }, {
     question: "Who created the first alphabet?",
     choices: ["Greeks", "Egyptians", "Romans", "Persians", "Phoenician"],
@@ -24,7 +24,7 @@ var quiz = [{
     answer: "Mesopotamian Civilization",
     trivia: "Historically, the ancient city states of Mesopotamia in the fertile crescent are the cradle of civilization. The convergence of the Tigris and Euphrates rivers produced rich fertile soil and a supply of water for irrigation. The civilizations that emerged around these rivers are among the earliest known non-nomadic agrarian societies. Because Ubaid, Sumer, Akkad, Assyria and Babylon civilizations all emerged around the Tigris-Euphrates, the theory that Mesopotamia is the cradle of civilization is widely accepted."
 }, {
-    question: "Which is the first book that's ever written?",
+    question: "Which of these is believed to be the first book that's ever written?",
     choices: ["The Epic of Gilgamesh", "The Whole Booke of Psalmes", "Diamond Sutra", "The Dispilio Tablet", "Legend of Etana"],
     correct: 0,
     answer: "The Epic of Gilgamesh",
