@@ -45,13 +45,12 @@ var numbersLeft = 5;
 $(document).ready(function() {
     //hide everything but the question part until they click the submit button
     nextQuestion.hide();
-    triviaInfo;
+    // triviaInfo;
     //function for accessing the objects and properties in the quizQuestions array
     var loadQuestion = function() {
         if (currentQuestion == quiz.length) {
             $('.submit-button').hide();
-            var ending = "<h3>" + 'Good job on finishing this quiz!' + "</h3>";
-            ending += "<div class='play-again'><button class='play-again-button'><a href='#'>" + 'Play Again' + "</a></button></div>";
+            var ending = "<h3>Good job on finishing this quiz!</h3><div class='play-again'><button class='play-again-button'><a href='#'>Play Again</a></button></div>";
             $('.end-page').append(ending);
             //once play again button is clicked, start the game all over again
             $('.play-again-button').click(function() {
