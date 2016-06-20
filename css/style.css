@@ -152,7 +152,7 @@ input[type="radio"] {
 }
 
 /*trivia info*/
-#trivia-info {
+.trivia-info {
 	margin: 2em 30em;
 	border: 2px solid black;
 	padding: 1.5em;
@@ -170,4 +170,10 @@ input[type="radio"] {
 	z-index: 999;
 	position: fixed;
 	width: 100%;
+}
+
+
+/*Hiding*/
+.hide {
+	display: none;
 }

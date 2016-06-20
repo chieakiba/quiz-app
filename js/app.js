@@ -32,11 +32,8 @@ var quiz = [{
 }];
 
 //global variables
-var nextQuestion = $('.next-question-button');
-var triviaInfo = $('#trivia-info').hide();
 var playerAnswer;
 var correctAnswer;
-var wrongAnswer;
 var currentQuestion = 0;
 var currentScore = 0;
 var numbersLeft = 5;
@@ -44,23 +41,24 @@ var numbersLeft = 5;
 
 $(document).ready(function() {
     //hide everything but the question part until they click the submit button
-    nextQuestion.hide();
-    // triviaInfo;
+    $('.next-question-button').addClass('hide');
+    $('.trivia-info').addClass('hide');
     //function for accessing the objects and properties in the quizQuestions array
     var loadQuestion = function() {
         if (currentQuestion == quiz.length) {
-            $('.submit-button').hide();
+            $('.submit-button').addClass('hide');
             var ending = "<h3>Good job on finishing this quiz!</h3><div class='play-again'><button class='play-again-button'><a href='#'>Play Again</a></button></div>";
             $('.end-page').append(ending);
             //once play again button is clicked, start the game all over again
-            $('.play-again-button').click(function() {
+            $('.play-again-button').on('click', function() {
                 $('.end-page').empty();
                 currentQuestion = 0;
                 loadQuestion();
-                $('.submit-button').show();
+                $('.submit-button').removeClass('hide');
             })
         } else {
             newQuestion = "<h3>" + quiz[currentQuestion].question + "</h3>";
+            $('.submit-button').removeClass('hide');
             for (var a = 0; a < quiz[currentQuestion].choices.length; a++) {
                 newQuestion += "<div class='options'><input value='" + a + "' type='radio' name='selector" + currentQuestion + "' class='radio-buttons'>" + quiz[currentQuestion].choices[a] + "</div>";
             }
@@ -69,31 +67,33 @@ $(document).ready(function() {
     }
     loadQuestion();
     //show question when submit button is clicked
-    $('.submit-button').click(function() {
+    $('.submit-button').on('click', function() {
         playerAnswer = $('input:checked').val();
         if (playerAnswer == quiz[currentQuestion].correct) {
             correctAnswer = $('.feedback').append("<h3>You got it right!!!</h3>");
             currentScore++;
+            $('.submit-button').addClass('hide');
             $('#currentScore').text(currentScore);
         } 
         else {
-            wrongAnswer = $('.feedback').append("<h3>Sorry, you got it wrong.</h3>");
+            $('.feedback').append("<h3>Sorry, you got it wrong.</h3>");
         }
         $('.feedback').append("<h4>The correct answer is:</br><strong>" + quiz[currentQuestion].answer + "</strong></h4>");
-        triviaInfo.show();
-        $('#trivia-info').append("<p>" + quiz[currentQuestion].trivia + "</p>");
-        nextQuestion.show();
+        $('.submit-button').addClass('hide');
+        $('.trivia-info').removeClass('hide');
+        $('.trivia-info').append("<p>" + quiz[currentQuestion].trivia + "</p>");
+        $('.next-question-button').removeClass('hide');
     })
     //show next question when Next Question button is clicked
-    $('.next-question-button').click(function() {
+    $('.next-question-button').on('click', function() {
         currentQuestion++;
         numbersLeft--;
         $('#numbersLeft').text(numbersLeft);
         $('.main-quiz').empty();
         $('.feedback').empty();
-        $('#trivia-info').empty();
-        nextQuestion.hide();
-        triviaInfo.hide();
+        $('.trivia-info').empty();
+        $('.next-question-button').addClass('hide');
+        $('.trivia-info').addClass('hide');
         loadQuestion();
     })
 });
