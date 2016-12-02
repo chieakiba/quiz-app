@@ -1,4 +1,4 @@
-//question array
+//Question array
 var quiz = [{
     question: "Which Seven Wonders of the Ancient World was built first?",
     choices: ["Hanging Gardens of Babylon", "Great Pyramid of Giza", "Colossus of Rhodes", "Lighthouse of Alexandria", "Temple of Artemis"],
@@ -31,7 +31,7 @@ var quiz = [{
     trivia: "The earliest writings were on clay tablets and were probably administrative lists. The first written story that has come down to us is The Epic of Gilgamesh. It is a mythologized account of an historical figure, Gilgamesh, a ruler of the Sumerian city-state of Uruk, believed to have ruled sometime between 2700-2500 BC."
 }];
 
-//global variables
+//Global variables
 var playerAnswer;
 var correctAnswer;
 var currentQuestion = 0;
@@ -40,22 +40,23 @@ var numbersLeft = 5;
 
 
 $(document).ready(function() {
-    //hide everything but the question part until they click the submit button
+    //Hide everything but the question part until they click the submit button
     $('.next-question-button').addClass('hide');
     $('.trivia-info').addClass('hide');
-    //function for accessing the objects and properties in the quizQuestions array
+    //Function for accessing the objects and properties in the quizQuestions array
     var loadQuestion = function() {
         if (currentQuestion == quiz.length) {
             $('.submit-button').addClass('hide');
             var ending = "<h3>Good job on finishing this quiz!</h3><div class='play-again'><button class='play-again-button'><a href='#'>Play Again</a></button></div>";
             $('.end-page').append(ending);
-            //once play again button is clicked, start the game all over again
+            //Once play again button is clicked, start the game all over again
             $('.play-again-button').on('click', function() {
                 $('.end-page').empty();
                 currentQuestion = 0;
                 loadQuestion();
                 $('.submit-button').removeClass('hide');
             })
+          //Otherwise show subsequent questions
         } else {
             newQuestion = "<h3>" + quiz[currentQuestion].question + "</h3>";
             $('.submit-button').removeClass('hide');
@@ -66,7 +67,7 @@ $(document).ready(function() {
         }
     }
     loadQuestion();
-    //show question when submit button is clicked
+    //Show question when submit button is clicked
     $('.submit-button').on('click', function() {
         playerAnswer = $('input:checked').val();
         if (playerAnswer == quiz[currentQuestion].correct) {
@@ -74,7 +75,7 @@ $(document).ready(function() {
             currentScore++;
             $('.submit-button').addClass('hide');
             $('#currentScore').text(currentScore);
-        } 
+        }
         else {
             $('.feedback').append("<h3>Sorry, you got it wrong.</h3>");
         }
@@ -84,7 +85,7 @@ $(document).ready(function() {
         $('.trivia-info').append("<p>" + quiz[currentQuestion].trivia + "</p>");
         $('.next-question-button').removeClass('hide');
     })
-    //show next question when Next Question button is clicked
+    //Show next question when Next Question button is clicked
     $('.next-question-button').on('click', function() {
         currentQuestion++;
         numbersLeft--;
